@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OlK-BS-Jsz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Artist Collection View Controller-->
+        <scene sceneID="C59-Fe-cbx">
+            <objects>
+                <collectionViewController id="0lT-CF-Rwe" customClass="ArtistCollectionViewController" customModule="FindTheArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ZSU-dp-Uym">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4ps-7U-4D7">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="12" minY="12" maxX="12" maxY="12"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="artistCell" id="ruP-NR-VfP" customClass="ArtistCollectionViewCell" customModule="FindTheArtist" customModuleProvider="target">
+                                <rect key="frame" x="12" y="12" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x6c-Iz-eGt">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Kh-s5-X1o">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="8Kh-s5-X1o" secondAttribute="trailing" id="PZD-u0-2V9"/>
+                                        <constraint firstAttribute="bottom" secondItem="8Kh-s5-X1o" secondAttribute="bottom" id="Ue2-NH-szq"/>
+                                        <constraint firstItem="8Kh-s5-X1o" firstAttribute="top" secondItem="x6c-Iz-eGt" secondAttribute="top" id="q0A-gB-UnZ"/>
+                                        <constraint firstItem="8Kh-s5-X1o" firstAttribute="leading" secondItem="x6c-Iz-eGt" secondAttribute="leading" id="wl1-XW-2RJ"/>
+                                    </constraints>
+                                </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="artistImageView" destination="8Kh-s5-X1o" id="MQS-TJ-Px0"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="0lT-CF-Rwe" id="2zj-TM-d0l"/>
+                            <outlet property="delegate" destination="0lT-CF-Rwe" id="IGs-2Y-7JC"/>
+                        </connections>
+                    </collectionView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Qlr-t4-rOJ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3.decrease" catalog="system" id="RJ8-yU-iqk">
+                            <connections>
+                                <segue destination="Xz0-yx-e6n" kind="presentation" identifier="toFilterVC" id="JWJ-In-PIc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqi-xU-Jui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44.927536231884062" y="-13.392857142857142"/>
+        </scene>
+        <!--Filter View Controller-->
+        <scene sceneID="tqC-pu-ZCj">
+            <objects>
+                <viewController id="Xz0-yx-e6n" customClass="FilterViewController" customModule="FindTheArtist" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NMv-Y8-K9M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="89O-rp-kwB">
+                                <rect key="frame" x="38.5" y="235.5" width="337" height="337"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="ijC-v1-qlV">
+                                        <rect key="frame" x="0.0" y="0.0" width="337" height="152.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vbh-pW-98b">
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="152.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Country"/>
+                                                <connections>
+                                                    <action selector="countryButtonTapped:" destination="Xz0-yx-e6n" eventType="touchUpInside" id="EXd-ZS-dTO"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Rd-jg-51I">
+                                                <rect key="frame" x="184.5" y="0.0" width="152.5" height="152.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Hip Hop"/>
+                                                <connections>
+                                                    <action selector="hipHopButtonTapped:" destination="Xz0-yx-e6n" eventType="touchUpInside" id="ydC-cJ-qNh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="VkK-YS-lQ1">
+                                        <rect key="frame" x="0.0" y="184.5" width="337" height="152.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nya-HI-ZvB">
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="152.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Pop"/>
+                                                <connections>
+                                                    <action selector="popButtonTapped:" destination="Xz0-yx-e6n" eventType="touchUpInside" id="3RM-zX-M7f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVo-GR-GX4">
+                                                <rect key="frame" x="184.5" y="0.0" width="152.5" height="152.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Classical"/>
+                                                <connections>
+                                                    <action selector="classicalButtonTapped:" destination="Xz0-yx-e6n" eventType="touchUpInside" id="w1O-X2-R9R"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="89O-rp-kwB" secondAttribute="height" multiplier="1:1" id="oDB-4e-diU"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HMw-Z0-Wqt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="89O-rp-kwB" firstAttribute="height" secondItem="NMv-Y8-K9M" secondAttribute="height" multiplier="0.4" id="Jd7-fN-6Iz"/>
+                            <constraint firstItem="89O-rp-kwB" firstAttribute="centerY" secondItem="HMw-Z0-Wqt" secondAttribute="centerY" id="bxL-RB-Bwg"/>
+                            <constraint firstItem="89O-rp-kwB" firstAttribute="centerX" secondItem="HMw-Z0-Wqt" secondAttribute="centerX" id="dIh-mw-IPW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdD-vg-o8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="797.10144927536237" y="-13.392857142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="W2Z-Ob-gmo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="OlK-BS-Jsz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="laX-Zs-tGZ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0lT-CF-Rwe" kind="relationship" relationship="rootViewController" id="gRx-QH-E7o"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3A-hx-I6D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-725" y="-13"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="line.horizontal.3.decrease" catalog="system" width="128" height="73"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
